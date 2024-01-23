@@ -2,28 +2,11 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const Earth = () => {
-  const [model, setModel] = useState();
-  const loader = new GLTFLoader();
+  const { scene } = useGLTF("/planet/scene.gltf");
 
-  useEffect(() => {
-    loader.load(
-      "../../../public/planet/scene.gltf",
-      (gltf) => {
-        setModel(gltf.scene);
-      },
-      undefined,
-      (error) => {
-        console.error(error);
-      }
-    );
-  }, [loader]);
-
-  if (!model) return null;
-
-  return <primitive object={model} scale={2.5} position-y={0} rotation-y={0} />;
+  return <primitive object={scene} scale={2.5} position-y={0} rotation-y={0} />;
 };
 
 const EarthCanvas = () => {

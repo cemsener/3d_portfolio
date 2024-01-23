@@ -1,46 +1,46 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-
 import CanvasLoader from "../Loader";
 
-const Computers = ({ isMobile }) => {
-  const [model, setModel] = useState();
-  const loader = new GLTFLoader();
-
-  useEffect(() => {
-    loader.load(
-      "../../../public/desktop_pc/scene.gltf",
-      (gltf) => {
-        setModel(gltf.scene);
-      },
-      undefined,
-      (error) => {
-        console.error(error);
-      }
-    );
-  }, [loader]);
-
-  if (!model) return null;
+function Model({ scale, position, rotation }) {
+  const { scene } = useGLTF("/computer/scene.gltf");
 
   return (
+    <primitive
+      object={scene}
+      scale={scale}
+      position={position}
+      rotation={rotation}
+    />
+  );
+}
+
+const Computers = ({ isMobile }) => {
+  const modelScale = isMobile ? 0.7 : 0.75;
+  const modelPosition = isMobile ? [0, -3, -2.2] : [1.2, -3, -5];
+  const modelRotation = [-0.01, -1.5, -0.1];
+  return (
     <mesh>
-      <hemisphereLight intensity={0.15} groundColor="black" />
-      <spotLight
-        position={[-20, 50, 10]}
-        angle={0.12}
-        penumbra={1}
-        intensity={1}
-        castShadow
-        shadow-mapSize={1024}
+      <ambientLight intensity={1} />
+      <hemisphereLight
+        intensity={1.5}
+        skyColor={"white"}
+        groundColor={"white"}
       />
-      <pointLight intensity={1} />
-      <primitive
-        object={model}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
-        rotation={[-0.01, -0.2, -0.1]}
+      <spotLight
+        position={[10, 20, 10]}
+        angle={0.1}
+        penumbra={2}
+        intensity={2}
+        castShadow
+        shadow-mapSize={2048}
+      />
+      <pointLight intensity={2} position={[10, 10, 10]} />
+      <Model
+        scale={modelScale}
+        position={modelPosition}
+        rotation={modelRotation}
       />
     </mesh>
   );
@@ -50,21 +50,12 @@ const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Add a listener for changes to the screen size
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    // Set the initial value of the `isMobile` state variable
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     setIsMobile(mediaQuery.matches);
-
-    // Define a callback function to handle changes to the media query
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
     };
-
-    // Add the callback function as a listener for changes to the media query
     mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    // Remove the listener when the component is unmounted
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
@@ -75,7 +66,7 @@ const ComputersCanvas = () => {
       frameloop="demand"
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
+      camera={{ position: [3, 15, 20], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
@@ -83,6 +74,7 @@ const ComputersCanvas = () => {
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
+          target={[0, 0, -5]}
         />
         <Computers isMobile={isMobile} />
       </Suspense>

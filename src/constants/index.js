@@ -178,11 +178,12 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+      "Mükemmel dizayn anlayışı ile yaptığımız projeye kattığın renk, gerçekten muazzam oldu. Senin gibi bilgi, beceri ve donanımlı biriyle çalışmak benim için büyük bir zevkti. Kariyerindeki başarıların devamını dilerim.",
+    name: "Muhammed Dereli",
+    designation: "Co-Founder",
+    company: "APP-GI",
+    image:
+      "http://muhammeddereli.online/assets/img/Ads%C4%B1z%20tasar%C4%B1m.png",
   },
   {
     testimonial:
