@@ -27,6 +27,9 @@ import {
   nurolteknoloji,
   baykar,
   tuc,
+  insighthr,
+  shop,
+  nativeapp,
 } from "../assets";
 
 export const navLinks = [
@@ -187,18 +190,18 @@ const testimonials = [
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+      "Harika bir ekip oyuncusu! Tasarım yetenekleri, projelerimize özgün ve estetik bir dokunuş katarken, aynı zamanda ekip ruhunu güçlendiriyor. Her zaman sorumluluk alır ve takımın başarısı için elinden gelenin en iyisini yapar.",
+    name: "Hülya Gümüş",
+    designation: "HR Specialist",
+    company: "MLP Care",
+    image: "http://insight.muhammeddereli.com/maindesign/img/team/hulya3.png",
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+      "Proje yönetimi ve problem çözme becerileriyle, zorlu süreçlerde dahi projelerimizi başarıyla yönlendirdi ve önemli katkılarda bulundu. İletişim becerileri ve ekip içi uyumu sayesinde, projemizde etkili çözümler üretti. ",
+    name: "Anonymous",
+    designation: "Full Stack Developer",
+    company: "123 Enterprises",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];
@@ -207,7 +210,7 @@ const projects = [
   {
     name: "HRMS SaaS Platform",
     description:
-      "HR management SaaS platform designed with C#, Entity Framework, ASP.NET Core 7.0 MVC, MsSQL, featuring Azure cloud deployment and multi-tier user access.",
+      "HR management SaaS platform designed with C#, Entity Framework, ASP.NET Core 7.0 MVC, MsSQL, Entity Framework featuring Azure cloud DevOps deployment and multi-tier user access.",
     tags: [
       {
         name: "C#",
@@ -222,53 +225,54 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
+    image: insighthr,
     source_code_link: "https://github.com/cemsener/InSight-HR",
     live_link: "http://insight.muhammeddereli.com/",
   },
   {
-    name: "E-Commerce Website",
+    name: "3D Tshirt Customizer",
     description:
-      "Modern e-commerce site built with TypeScript, Next.js, Redux, Prisma and Tailwind CSS. Features include responsive design and SEO optimization.",
+      "A modern e-commerce platform developed using Three.js that offers dynamic 3D t-shirt design features. Users can customize their own t-shirts in 3D and experiment with different fabric and pattern options.",
     tags: [
       {
-        name: "typescript",
+        name: "threejs",
         color: "blue-text-gradient",
       },
       {
-        name: "nextjs",
+        name: "react",
         color: "green-text-gradient",
       },
       {
-        name: "prisma",
+        name: "openai",
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/cemsener/E_Commerce",
+    image: shop,
+    source_code_link: "https://github.com/cemsener/3d_shop_ai",
     live_link: "http://cemsener.online/",
   },
   {
-    name: "Portfolio Website",
+    name: "React Native Jobs App",
     description:
-      "Animated website crafted with React and Framer Motion, showcasing interactive and dynamic user experiences through sophisticated animations.",
+      "Comprehensive mobile application developed with React Native, incorporating Redux for state management and NativeBase for UI components. Offers seamless job searching functionalities.",
     tags: [
       {
-        name: "reactjs",
+        name: "reactnative",
         color: "blue-text-gradient",
       },
       {
-        name: "framermotion",
+        name: "nativebase",
         color: "green-text-gradient",
       },
       {
-        name: "htmlcss",
+        name: "rapidapi",
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/cemsener/Portfolio_Website",
-    live_link: "https://cemsener.com.tr/",
+    image: nativeapp,
+    source_code_link: "https://github.com/cemsener/react_native_job",
+    live_link:
+      "https://expo.dev/accounts/cemsener/projects/cemsener/updates/d4331722-eb68-4b5e-ae23-d45ee3a1457a",
   },
 ];
 

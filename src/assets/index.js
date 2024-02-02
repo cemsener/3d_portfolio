@@ -35,6 +35,9 @@ import tuc from "./company/tuc.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import insighthr from "./insighthr.png";
+import shop from "./3dshop.png";
+import nativeapp from "./nativeapp.jpg";
 
 export {
   logo,
@@ -71,4 +74,7 @@ export {
   tuc,
   livelink,
   cemlogoo,
+  insighthr,
+  shop,
+  nativeapp,
 };
